@@ -49,7 +49,7 @@ def main(cfg, steps: int):
     optimizer = zero_optim_wrapper(
         model, optimizer, optim_config=ZERO_OPTIM_CFG)
 
-    with tqdm(range(10), desc='Train', disable=dist.get_rank() != 0) as pbar:
+    with tqdm(range(steps), desc='Train', disable=dist.get_rank() != 0) as pbar:
         for _ in pbar:
 
             data = get_data()
